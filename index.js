@@ -33,10 +33,10 @@ client.connect(err => {
   })
 
   app.get('/bookings', (req, res) => {
-    productsCollection.find({email: req.body.email})
-    .toArray((err,documents)=>{
-      res.send(documents);
-    })
+    productsCollection.find({ email: req.body.email })
+      .toArray((err, documents) => {
+        res.send(documents);
+      })
   })
 
   app.post('/addEvent', (req, res) => {
@@ -65,4 +65,4 @@ client.connect(err => {
 
 });
 
-app.listen(port)
+app.listen(process.env.PORT || port)
